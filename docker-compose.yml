@@ -15,10 +15,10 @@ services:
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
     environment:
-      - DB_HOST=db
-      - DB_NAME=devdb
-      - DB_USER=sa
-      - DB_PASS=Your_password123
+      - DB_HOST=www.iskit.pro
+      - DB_NAME=goodydb
+      - DB_USER=goody1
+      - DB_PASS=talori10
     depends_on:
       - db
 
@@ -26,7 +26,7 @@ services:
     image: mcr.microsoft.com/mssql/server
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=Your_password123
+      - SA_PASSWORD=talori10
       - MSSQL_PID=Express # Change as per your edition
     volumes:
       - dev-db-data:/var/opt/mssql
