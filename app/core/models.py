@@ -61,7 +61,7 @@ class Student(models.Model):
         on_delete=models.CASCADE,
         blank=True, null=True
     )
-    student_id = models.IntegerField(unique=True, db_column='StudentID')
+    student_id = models.IntegerField(primary_key=True, db_column='StudentID')
     name = models.CharField(max_length=255, db_column='StudentName')
     id_number = models.CharField(max_length=10, blank=True, null=True, db_column='IDnum')
     address = models.CharField(max_length=100, blank=True, null=True, db_column='Address')
