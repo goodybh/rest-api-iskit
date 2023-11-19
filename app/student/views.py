@@ -1,5 +1,5 @@
 """
-Views for the recipe APIs
+Views for the student APIs
 """
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
@@ -10,15 +10,16 @@ from student import serializers
 
 
 class StudentViewSet(viewsets.ModelViewSet):
-    """View for manage student APIs."""
+    """View for managing student APIs."""
     serializer_class = serializers.StudentSerializer
     queryset = Student.objects.all()
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        """Retrieve students for authenticated user."""
-        return self.queryset.filter(user=self.request.user).order_by('-student_id')
+        """Retrieve all students."""
+        # This will return all student records, regardless of the user
+        return self.queryset.order_by('-student_id')
     
     def perform_create(self, serializer):
         """Create a new student."""

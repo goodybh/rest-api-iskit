@@ -6,6 +6,8 @@ from django.contrib.auth.models import (
 )
 from django.conf import settings
 from django.db.models import Max
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 
 
@@ -82,11 +84,11 @@ class Student(models.Model):
     credit_card = models.CharField(max_length=50, blank=True, null=True, db_column='CreditCard')
     maavar = models.BooleanField(default=False, db_column='maavar')
     credit_card_owner = models.CharField(max_length=50, blank=True, null=True, db_column='CrditCardOwner')
-    credit_card_type = models.PositiveSmallIntegerField(blank=True, null=True, db_column='CrditCardType')
+    credit_card_type = models.PositiveSmallIntegerField(validators=[MaxValueValidator(255)], blank=True, null=True, db_column='CrditCardType')
     valid = models.CharField(max_length=5, blank=True, null=True, db_column='Valid')
-    mehiron_number = models.PositiveSmallIntegerField(blank=True, null=True, db_column='MehironNumber')
+    mehiron_number = models.PositiveSmallIntegerField(validators=[MaxValueValidator(255)], blank=True, null=True, db_column='MehironNumber')
     id_card_owner = models.CharField(max_length=10, blank=True, null=True, db_column='idCardOwner')
-    payment_terms = models.SmallIntegerField(blank=True, null=True, db_column='TnaiTashlum')
+    payment_terms = models.PositiveSmallIntegerField(validators=[MaxValueValidator(255)], blank=True, null=True, db_column='TnaiTashlum')
     discount_percentage = models.FloatField(blank=True, null=True, db_column='DiscountPR')
     photo_path = models.CharField(max_length=50, blank=True, null=True, db_column='PhotoPath')
     field_type_id = models.IntegerField(blank=True, null=True, db_column='fldTypeID')
@@ -96,10 +98,10 @@ class Student(models.Model):
     opening_balance = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, db_column='OpeningBalance')
     opening_balance_date = models.DateTimeField(blank=True, null=True, db_column='OpeningBalancedate')
     no_vat = models.BooleanField(default=False, db_column='NoVat')
-    seif_income = models.SmallIntegerField(blank=True, null=True, db_column='SeifIncome')
+    seif_income = models.PositiveSmallIntegerField(validators=[MaxValueValidator(255)], blank=True, null=True, db_column='SeifIncome')
     lo_pail = models.BooleanField(default=False, db_column='LoPail')
-    cust_type = models.PositiveSmallIntegerField(blank=True, null=True, db_column='CustType')
-    cvv = models.SmallIntegerField(blank=True, null=True, db_column='CVV')
+    cust_type = models.PositiveSmallIntegerField(validators=[MaxValueValidator(255)], blank=True, null=True, db_column='CustType')
+    cvv = models.PositiveSmallIntegerField(validators=[MaxValueValidator(255)], blank=True, null=True, db_column='CVV')
 
     objects = StudentManager()
 
