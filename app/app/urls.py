@@ -27,7 +27,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-        path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
+    path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
     path(
         'api/docs/',
         SpectacularSwaggerView.as_view(url_name='api-schema'),
@@ -37,9 +37,3 @@ urlpatterns = [
     path('api/student/', include('student.urls')),
 
 ]   
-
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT,
-    )
