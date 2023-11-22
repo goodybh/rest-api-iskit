@@ -19,6 +19,7 @@ services:
       - DB_NAME=goodydb
       - DB_USER=goody1
       - DB_PASS=talori10
+      - DEBUG=1
     depends_on:
       - db
 
@@ -35,3 +36,4 @@ services:
 
 volumes:
   dev-db-data:
+  dev-static-data:
