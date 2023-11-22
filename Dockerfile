@@ -27,11 +27,13 @@ RUN python -m venv /py && \
 # Set the appropriate permissions
 RUN chmod -R +x /scripts
 
-ENV PATH="/scripts:/py/bin:$PATH"
+# Create staticfiles directory and set permissions
+RUN mkdir -p /app/staticfiles && \
+    chown django-user:django-user /app/staticfiles
 
+ENV PATH="/scripts:/py/bin:$PATH"
 
 # Create a non-root user
 RUN adduser --disabled-password --no-create-home django-user
 USER django-user
 CMD ["run.sh"]
-
