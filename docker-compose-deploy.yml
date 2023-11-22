@@ -21,9 +21,9 @@ services:
     volumes:
       - mssql-data:/var/opt/mssql
     environment:
-      - SQLSERVER_DB=${DB_NAME}
-      - SQLSERVER_USER=${DB_USER}
-      - PSQLSERVER_PASSWORD=${DB_PASS}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
 
   proxy:
     build:
