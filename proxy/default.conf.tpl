@@ -4,6 +4,7 @@ server {
     location /static {
         alias /static;
     }
+}
 
 
 server {
