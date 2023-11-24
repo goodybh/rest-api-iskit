@@ -17,7 +17,7 @@ services:
     environment:
       - DB_HOST=www.iskit.pro
       - DB_NAME=goodydb
-      - DB_USER=goody1
+      - DB_USER=goody2
       - DB_PASS=talori10
       - DEBUG=1
     depends_on:

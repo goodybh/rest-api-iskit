@@ -1,5 +1,5 @@
 FROM python:3.12
-LABEL maintainer="goody"
+LABEL maintainer="Goody"
 ENV PYTHONUNBUFFERED 1
 
 # Install Microsoft ODBC Driver for SQL Server and Linux Headers
