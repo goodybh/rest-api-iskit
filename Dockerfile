@@ -2,11 +2,12 @@ FROM python:3.12
 LABEL maintainer="Goody"
 ENV PYTHONUNBUFFERED 1
 
-# Install Microsoft ODBC Driver for SQL Server and Linux Headers
+# Install Microsoft ODBC Driver for SQL Server, Linux Headers, and other dependencies
 RUN apt-get update && apt-get install -y gnupg2 && \
     curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
     curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
-    apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev 
+    apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev && \
+    apt-get install -y linux-headers-amd64
 
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
