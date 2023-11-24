@@ -33,7 +33,7 @@ RUN adduser --disabled-password --no-create-home django-user
 
 # Create staticfiles directory and set permissions
 RUN mkdir -p /app/staticfiles && \
-    chown django-user:django-user /app/staticfiles && \
+    chown -R django-user:django-user /app/staticfiles && \
     chmod -R 755 /app/staticfiles
 
 
