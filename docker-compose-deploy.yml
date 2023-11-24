@@ -21,6 +21,7 @@ services:
     volumes:
       - mssql-data:/var/opt/mssql
     environment:
+      - ACCEPT_EULA=Y
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
