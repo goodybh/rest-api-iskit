@@ -2,7 +2,7 @@ server {
     listen ${LISTEN_PORT};
 
     location /static {
-        alias /app/static;
+        alias /vol/static;
     }
 
     location / {
@@ -10,4 +10,4 @@ server {
         include /etc/nginx/uwsgi_params;
         client_max_body_size 10M;
     }
-}   
+}
