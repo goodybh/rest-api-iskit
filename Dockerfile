@@ -24,10 +24,10 @@ RUN python -m venv /py && \
     if [ "$DEV" = "true" ]; then \
         /py/bin/pip install -r /tmp/requirements.dev.txt; \
     fi && \
-    rm -rf /tmp && \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp && \
     adduser \
         --disabled-password \
         --no-create-home \
