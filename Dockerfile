@@ -32,9 +32,9 @@ RUN chmod -R +x /scripts
 RUN adduser --disabled-password --no-create-home django-user
 
 # Create staticfiles directory and set permissions
-RUN mkdir -p /app/staticfiles && \
-    chown -R django-user:django-user /app/staticfiles && \
-    chmod -R 755 /app/staticfiles
+RUN mkdir -p /app/static && \
+    chown -R django-user:django-user /app/static && \
+    chmod -R 755 /app/static
 
 
 ENV PATH="/scripts:/py/bin:$PATH"
