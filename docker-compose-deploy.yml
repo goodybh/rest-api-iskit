@@ -8,7 +8,7 @@ services:
     volumes:
       - static-data:/vol/web
     environment:
-      - DB_HOST= www.iskit.pro
+      - DB_HOST=www.iskit.pro
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
@@ -37,7 +37,7 @@ services:
     ports:
       - 80:8000
     volumes:
-      - static-data:/vol/static
+      - static-data:/vol/web
 
 
 volumes:
