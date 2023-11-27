@@ -27,12 +27,15 @@ RUN apt-get update && \
     apt-get clean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* && \
-    adduser --disabled-password --no-create-home django-user && \
-    mkdir -p /vol/web/media && \
-    mkdir -p /vol/web/static && \
-    chown -R django-user:django-user /vol && \
-    chmod -R 777 /vol && \
     chmod -R +x /scripts
+
+# Create a non-root user
+RUN adduser --disabled-password --no-create-home django-user
+
+RUN mkdir -p /app/staticfiles && \
+    chown -R django-user:django-user /app/staticfiles && \
+    chmod -R 755 /app/staticfiles
+
 
 ENV PATH="/scripts:/py/bin:$PATH"
 USER django-user

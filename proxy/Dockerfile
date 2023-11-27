@@ -11,13 +11,14 @@ ENV APP_PORT=9000
 
 USER root
 
-RUN mkdir -p /vol/static && \
-    chmod 777 /vol/static && \
+RUN mkdir -p /app/staticfiles && \
+    chown -R django-user:django-user /app/staticfiles && \
+    chmod -R 755 /app/staticfiles && \
     touch /etc/nginx/conf.d/default.conf && \
     chown nginx:nginx /etc/nginx/conf.d/default.conf && \
     chmod +x /run.sh
 
-VOLUME /vol/static
+VOLUME /app/staticfiles
 
 USER nginx
 
