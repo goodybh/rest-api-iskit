@@ -19,6 +19,8 @@ RUN adduser -D -g 'Django User' django-user && \
     chown nginx:nginx /etc/nginx/conf.d/default.conf && \
     chmod +x /run.sh
 
+VOLUME " ] app/staticfiles
+
 USER nginx
 
 CMD ["/run.sh"]
